@@ -16,4 +16,4 @@ def dog_random_dog_image_url():
 
 @pytest.fixture()
 def brewery_get_breweries_url():
-    return "https://api.openbrewerydb.org/breweries"
+    return "https://api.openbrewerydb.org/breweries/"

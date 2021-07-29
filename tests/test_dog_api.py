@@ -4,7 +4,6 @@ import cerberus
 from test_data.get_dogapi_methods import methods
 
 
-
 # basic validation of "get all breeds" api response
 def test_all_breeds_schema(dog_all_breeds_url):
     schema = {'message': {'type': 'dict', 'required': True},
@@ -32,12 +31,13 @@ def test_random_breed_image_correct_status(dog_random_breed_image_url, breed, st
     assert response.json()["status"] == status
 
 
+#testing that api return correct amount of entries
 @pytest.mark.parametrize('amount', ['3', '5', '7'])
 def test_random_n_images_from_all_breeds(amount, dog_random_dog_image_url):
     response = requests.request('get', dog_random_dog_image_url + amount)
     assert len(response.json()["message"]) == int(amount)
 
-
+#testing that random image method returns valid image
 def test_random_image_returns_valid_jpg(dog_random_dog_image_url):
     response_image_url = requests.request('get', dog_random_dog_image_url).json()["message"]
 

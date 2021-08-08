@@ -1,0 +1,7 @@
+method,status
+get,200
+post,404
+put,404
+patch,404
+delete,404
+head,200
